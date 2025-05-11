@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Mother's Day</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@400;600&display=swap');
+        
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #ffebee;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(255,214,221,0.8) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(255,214,221,0.8) 0%, transparent 20%),
+                radial-gradient(circle at 30% 50%, rgba(255,214,221,0.6) 0%, transparent 30%),
+                radial-gradient(circle at 70% 30%, rgba(255,214,221,0.6) 0%, transparent 30%);
+            font-family: 'Montserrat', sans-serif;
+            overflow-x: hidden;
+        }
+
+        .love-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.3;
+        }
+
+        .heart {
+            position: absolute;
+            pointer-events: none;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+        }
+
+        .card {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 500px;
+            padding: 30px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            margin: 20px;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 10px;
+            background: linear-gradient(90deg, #ff6b8b, #ff8e9e, #ffb3c1);
+        }
+
+        h1 {
+            font-family: 'Dancing Script', cursive;
+            color: #d23669;
+            font-size: 2.8rem;
+            margin: 20px 0;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .photo-frame {
+            width: 250px;
+            height: 250px;
+            margin: 0 auto;
+            border-radius: 50%;
+            padding: 10px;
+            background: linear-gradient(135deg, #ff6b8b, #ffb3c1);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .photo-frame::after {
+            content: '';
+            position: absolute;
+            inset: 5px;
+            border-radius: 50%;
+            border: 3px dashed white;
+            pointer-events: none;
+        }
+
+        .photo {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid white;
+            box-sizing: border-box;
+        }
+
+        .message {
+            margin: 30px 0;
+            color: #555;
+            line-height: 1.6;
+            font-size: 1.1rem;
+        }
+
+        .signature {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.8rem;
+            color: #ff6b8b;
+            margin-top: 20px;
+        }
+
+        .hearts-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+    </style>
+</head>
+<body>
+    <div class="hearts-container" id="hearts"></div>
+    
+    <div class="card">
+        <h1>Happy Mother's Day</h1>
+        
+        <div class="photo-frame">
+            <img src="449355183_122110917866364520_6686332179946542723_n.jpg"
+                 alt="Beautiful Mother" 
+                 class="photo">
+        </div>
+        
+        <div class="message">
+            <p>To the world's most wonderful mom,</p>
+            <p>Your love is the light that guides me,</p>
+            <p>Your warmth is the comfort that surrounds me,</p>
+            <p>And your heart is the home I'll always return to.</p>
+        </div>
+        
+        <div class="signature">With all my love</div>
+    </div>
+
+    <script>
+        // Create floating hearts
+        const heartsContainer = document.getElementById('hearts');
+        const colors = ['#ff6b8b', '#ff8e9e', '#ffb3c1', '#ffd3d3'];
+        
+        for (let i = 0; i < 15; i++) {
+            const heart = document.createElement('div');
+            heart.innerHTML = '❤';
+            heart.classList.add('heart');
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.top = Math.random() * 100 + 'vh';
+            heart.style.fontSize = (Math.random() * 20 + 10) + 'px';
+            heart.style.opacity = Math.random() * 0.5 + 0.3;
+            heart.style.animationDuration = (Math.random() * 5 + 3) + 's';
+            heart.style.animationDelay = Math.random() * 3 + 's';
+            heart.style.color = colors[Math.floor(Math.random() * colors.length)];
+            heartsContainer.appendChild(heart);
+        }
+    </script>
+</body>
+</html>
